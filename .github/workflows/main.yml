@@ -48,9 +48,9 @@ jobs:
       - name: Install BuildDeps
         run: sudo customEngine/src/build/install-build-deps-android.sh --no-prompt
       - name: ninja build libflutter
-        run: export PATH=$PATH:`pwd`/depot_tools && customEngine/src/flutter/tools/gn --android --android-cpu=arm64 --runtime-mode=release && ninja -C customEngine/src/out/android_release_arm64
+        run: export PATH=$PATH:`pwd`/depot_tools && customEngine/src/flutter/tools/gn --android --android-cpu=arm64 --runtime-mode=release && /usr/bin/ninja -C customEngine/src/out/android_release_arm64
       - name: ninja build libflutter32
-        run: export PATH=$PATH:`pwd`/depot_tools && customEngine/src/flutter/tools/gn --android --android-cpu=arm --runtime-mode=release && ninja -C customEngine/src/out/android_release
+        run: export PATH=$PATH:`pwd`/depot_tools && customEngine/src/flutter/tools/gn --android --android-cpu=arm --runtime-mode=release && /usr/bin/ninja -C customEngine/src/out/android_release
       - name: Move to release
         run: |
          cp customEngine/src/out/android_release_arm64/lib.stripped/libflutter.so libflutter_arm64.so 2>/dev/null || :
